@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Arin & Miftah</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link untuk CSS jika diperlukan -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>The Wedding of Arin & Miftah</h1>
+        <h2>ACARA SUDAH BERLANGSUNG!</h2>
+        <button>Add to Calendar</button>
+        <h3>Dear <span id="friend-name">Friends</span>,</h3>
+    </div>
+
+    <script>
+        // Fungsi untuk mendapatkan nama dari URL
+        function getNameFromUrl() {
+            // Mengambil bagian URL setelah '/'
+            const pathArray = window.location.pathname.split('/');
+            // Mengambil elemen terakhir dari array (nama)
+            const name = pathArray[pathArray.length - 1];
+            // Mengembalikan nama jika tidak kosong, jika kosong kembalikan "Friends"
+            return name ? name.charAt(0).toUpperCase() + name.slice(1) : "Friends";
+        }
+
+        // Mengatur nama teman di halaman
+        document.getElementById('friend-name').textContent = getNameFromUrl();
+    </script>
+</body>
+</html>
