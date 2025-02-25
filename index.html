@@ -3,31 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Arin & Miftah</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link untuk CSS jika diperlukan -->
+    <title>Undangan Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #35424a;
+            color: #ffffff;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>The Wedding of Arin & Miftah</h1>
-        <h2>ACARA SUDAH BERLANGSUNG!</h2>
-        <button>Add to Calendar</button>
-        <h3>Dear <span id="friend-name">Friends</span>,</h3>
+        <header>
+            <h1>Undangan Digital</h1>
+        </header>
+        <main>
+            <h2>Selamat Datang, <span id="nama"></span>!</h2>
+            <p>Anda diundang untuk menghadiri acara spesial kami.</p>
+            <p>Tanggal: 25 Desember 2023</p>
+            <p>Waktu: 18:00 WIB</p>
+            <p>Tempat: Gedung Serbaguna, Jakarta</p>
+        </main>
+        <footer>
+            <p>&copy; 2023 Nama Anda</p>
+        </footer>
     </div>
 
     <script>
-        // Fungsi untuk mendapatkan nama dari URL
-        function getNameFromUrl() {
-            // Mengambil bagian URL setelah '/'
-            const pathArray = window.location.pathname.split('/');
-            // Mengambil elemen terakhir dari array (nama)
-            const name = pathArray[pathArray.length - 1];
-            // Mengembalikan nama jika tidak kosong, jika kosong kembalikan "Friends"
-            return name ? name.charAt(0).toUpperCase() + name.slice(1) : "Friends";
-        }
-
-        // Mengatur nama teman di halaman
-        document.getElementById('friend-name').textContent = getNameFromUrl();
+        // Mengambil parameter dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nama = urlParams.get('nama') || 'Tamu'; // Default ke 'Tamu' jika tidak ada nama
+        document.getElementById('nama').textContent = nama;
     </script>
 </body>
 </html>
